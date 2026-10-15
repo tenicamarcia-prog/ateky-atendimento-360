@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa de Atendimento com Visão 360º | Ateky Internet × Márcia Treinamentos</title>
+  <meta name="description" content="Programa de Atendimento com Visão 360º da Ateky Internet. Pare de rasgar dinheiro na empresa com excelência em Customer Experience e retenção real de clientes.">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* ==============================================================
+       PADRÃO MÁRCIA TREINAMENTOS — DESIGN SYSTEM CORPORATIVO
+       ============================================================== */
+    :root {
+      --bg: #f8fafc;
+      --navy-dark: #0a1e3f;
+      --navy: #0d2b5e;
+      --navy-light: #163d7e;
+      --blue-hover: #1e40af;
+      --cyan: #0284c7;
+      --cyan-light: #e0f2fe;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-soft: #64748b;
+      
+      /* Alertas e Status Oficiais */
+      --alerta-bg: #fff7ed;
+      --alerta-border: #fed7aa;
+      --alerta-text: #c2410c;
+      --alerta-accent: #ea580c;
+      
+      --sucesso-bg: #f0fdf4;
+      --sucesso-border: #bbf7d0;
+      --sucesso-text: #15803d;
+      --sucesso-accent: #16a34a;
+      
+      --critico-bg: #fef2f2;
+      --critico-border: #fecaca;
+      --critico-text: #b91c1c;
+      
+      /* Sombras elegantes */
+      --shadow-sm: 0 1px 3px rgba(10, 30, 63, 0.05);
+      --shadow: 0 4px 16px -2px rgba(13, 43, 94, 0.08);
+      --shadow-lg: 0 10px 25px -5px rgba(10, 30, 63, 0.12);
+      --shadow-hero: 0 16px 36px -8px rgba(10, 30, 63, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container padronizado */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Barra Superior Fixa */
+    header.topbar {
+      background: var(--navy-dark);
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 12px rgba(10, 30, 63, 0.15);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .brand span.accent {
+      color: var(--cyan);
+    }
+
+    .brand-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(2, 132, 199, 0.2);
+      color: #7dd3fc;
+      border: 1px solid rgba(2, 132, 199, 0.35);
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      list-style: none;
+    }
+
+    .topbar-nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .topbar-nav a:hover {
+      color: #ffffff;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--cyan);
+      color: #ffffff;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-action:hover {
+      background: #0274b3;
+      transform: translateY(-1px);
+    }
+
+    /* ==============================================================
+       HERO PRINCIPAL (Padronizado Padrão Márcia)
+       ============================================================== */
+    .hero {
+      background: linear-gradient(135deg, #0a1e3f 0%, #0d2b5e 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 44px 44px;
+      margin: 28px auto 36px;
+      box-shadow: var(--shadow-hero);
+      display: grid;
+      grid-template-columns: 1fr 310px;
+      gap: 36px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, rgba(10, 30, 63, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .punchline-badge {
+      display: inline-block;
+      background: rgba(234, 88, 12, 0.2);
+      border: 1px solid rgba(253, 186, 116, 0.4);
+      color: #fdba74;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-content p.subtitle {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .hero-meta-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+    }
+
+    .hero-meta-box strong {
+      color: #ffffff;
+    }
+
+    /* Avatar da Apresentadora à DIREITA (apontando para a esquerda) */
+    .hero-avatar-side {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 270px;
+      height: 270px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(2, 132, 199, 0.2) 0%, rgba(10, 30, 63, 0.6) 100%);
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .avatar-badge-tag {
+      position: absolute;
+      bottom: -10px;
+      background: var(--navy-dark);
+      color: #ffffff;
+      border: 1px solid var(--cyan);
+      padding: 5px 14px;
+      border-radius: 9999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    /* ==============================================================
+       SUMÁRIO EXECUTIVO (TOC)
+       ============================================================== */
+    .toc-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .toc-header h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy-dark);
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .toc-item:hover {
+      background: #e0f2fe;
+      border-color: #bae6fd;
+      transform: translateY(-2px);
+    }
+
+    .toc-num {
+      width: 24px;
+      height: 24px;
+      background: var(--navy);
+      color: #ffffff;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .toc-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--navy-dark);
+    }
+
+    /* ==============================================================
+       SEÇÕES DE CONTEÚDO
+       ============================================================== */
+    .module-section {
+      margin-bottom: 44px;
+      scroll-margin-top: 90px;
+    }
+
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .module-badge {
+      width: 44px;
+      height: 44px;
+      background: var(--navy-dark);
+      color: #ffffff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(10, 30, 63, 0.15);
+      flex-shrink: 0;
+    }
+
+    .module-titles h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--navy-dark);
+      letter-spacing: -0.015em;
+    }
+
+    .module-titles p {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-top: 2px;
+    }
+
+    /* Cards Grid */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-header {
+      background: var(--navy);
+      color: #ffffff !important;
+      padding: 16px 20px;
+      font-weight: 700;
+      font-size: 1.02rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-header i {
+      color: #7dd3fc;
+      width: 20px;
+      height: 20px;
+    }
+
+    .card-body {
+      padding: 22px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.96rem;
+      color: var(--text-muted);
+    }
+
+    .card-body p {
+      line-height: 1.55;
+    }
+
+    /* Números de Impacto */
+    .big-stat-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .big-stat-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--cyan);
+    }
+
+    .big-number {
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--navy-dark);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .big-number span.symbol {
+      color: var(--cyan);
+    }
+
+    .big-stat-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--navy-dark);
+      margin-bottom: 6px;
+    }
+
+    .big-stat-desc {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    /* Caixas de Destaque Oficial */
+    .highlight-box {
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .highlight-box.navy {
+      background: linear-gradient(135deg, #0a1e3f 0%, #0d2b5e 100%);
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .highlight-box.navy h3 {
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .highlight-box.navy p {
+      color: #cbd5e1;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    .highlight-box.warning {
+      background: var(--alerta-bg);
+      border: 1px solid var(--alerta-border);
+      border-left: 5px solid var(--alerta-accent);
+      color: #7c2d12;
+    }
+
+    .highlight-box.warning h3 {
+      color: var(--alerta-text);
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .highlight-box.warning p {
+      color: #9a3412;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .highlight-box.success {
+      background: var(--sucesso-bg);
+      border: 1px solid var(--sucesso-border);
+      border-left: 5px solid var(--sucesso-accent);
+      color: #14532d;
+    }
+
+    .highlight-box.success h3 {
+      color: var(--sucesso-text);
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .highlight-box.success p {
+      color: #166534;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    /* Scripts e Frases de Efeito */
+    .script-box {
+      background: #f1f5f9;
+      border-left: 4px solid var(--cyan);
+      border-radius: 0 14px 14px 0;
+      padding: 18px 24px;
+      margin: 18px 0;
+      font-size: 0.98rem;
+      color: var(--navy-dark);
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    .script-box .script-label {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--cyan);
+      margin-bottom: 6px;
+      font-style: normal;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==============================================================
+       CARDS DE SITUAÇÃO REAL & VIRADA DE CHAVE
+       ============================================================== */
+    .situation-pair {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .situation-header {
+      background: #f8fafc;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--navy-dark);
+    }
+
+    .situation-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .problem-side {
+      background: #fffaf5;
+      padding: 22px 24px;
+      border-right: 1px solid var(--border);
+    }
+
+    .problem-side .side-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffedd5;
+      color: #c2410c;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .problem-side h4 {
+      color: #9a3412;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .problem-side p {
+      color: #7c2d12;
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .solution-side {
+      background: #f6fef9;
+      padding: 22px 24px;
+    }
+
+    .solution-side .side-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #dcfce7;
+      color: #15803d;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .solution-side h4 {
+      color: #166534;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .solution-side p {
+      color: #14532d;
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    /* Script recomendado dentro da solução */
+    .solution-script {
+      background: #ffffff;
+      border: 1px solid #bbf7d0;
+      border-left: 3px solid #16a34a;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #0f172a;
+      font-style: italic;
+    }
+
+    /* ==============================================================
+       CHECKLIST INTERATIVO DE EXCELÊNCIA
+       ============================================================== */
+    .checklist-container {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      margin-top: 24px;
+    }
+
+    .checklist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .checklist-title h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy-dark);
+    }
+
+    .checklist-title p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .progress-wrapper {
+      min-width: 200px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0284c7, #16a34a);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .progress-text {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    .checklist-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .check-item:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .check-item.checked {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+    }
+
+    .check-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--sucesso-accent);
+      cursor: pointer;
+    }
+
+    .check-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy-dark);
+      flex-grow: 1;
+    }
+
+    .check-item.checked .check-label {
+      color: #166534;
+      text-decoration: none;
+    }
+
+    /* ==============================================================
+       MÁRCIA CARDOSO & AVALIAÇÃO COM QR CODE
+       ============================================================== */
+    .trainer-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 40px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .trainer-info h3 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--navy-dark);
+      margin-bottom: 4px;
+    }
+
+    .trainer-role {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .trainer-text {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .trainer-highlight {
+      background: #f8fafc;
+      border-left: 4px solid var(--navy);
+      padding: 12px 18px;
+      border-radius: 0 10px 10px 0;
+      font-weight: 600;
+      color: var(--navy-dark);
+      font-size: 0.95rem;
+    }
+
+    .trainer-photo-wrap {
+      width: 240px;
+      height: 240px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid #e2e8f0;
+      box-shadow: var(--shadow);
+    }
+
+    .trainer-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Caixa de Avaliação */
+    .eval-box {
+      background: linear-gradient(135deg, #0a1e3f 0%, #0d2b5e 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 44px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-hero);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .eval-box h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .eval-box p {
+      color: #cbd5e1;
+      max-width: 580px;
+      margin: 0 auto 24px;
+      font-size: 1rem;
+    }
+
+    .qr-frame {
+      background: #ffffff;
+      padding: 14px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .qr-frame img {
+      width: 180px;
+      height: 180px;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .eval-instruction {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #7dd3fc;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==============================================================
+       RODAPÉ OFICIAL
+       ============================================================== */
+    footer.page-footer {
+      background: var(--navy-dark);
+      color: #ffffff;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    footer.page-footer p.main-copy {
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    footer.page-footer p.sub-copy {
+      color: #94a3b8;
+      font-size: 0.86rem;
+    }
+
+    /* ==============================================================
+       RESPONSIVIDADE E IMPRESSÃO
+       ============================================================== */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 36px 24px;
+        text-align: center;
+      }
+
+      .hero-avatar-side {
+        order: -1;
+      }
+
+      .avatar-wrapper {
+        width: 220px;
+        height: 220px;
+      }
+
+      .situation-content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-side {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .trainer-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .trainer-photo-wrap {
+        margin: 0 auto;
+        order: -1;
+      }
+
+      .topbar-nav {
+        display: none;
+      }
+    }
+
+    @media print {
+      header.topbar, .btn-action, .checklist-items input {
+        display: none !important;
+      }
+      .card, .situation-pair, .trainer-card, .eval-box {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+      }
+      body {
+        background: #ffffff !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a href="#inicio" class="brand">
+          <i data-lucide="shield-check" style="color: var(--cyan); width: 22px; height: 22px;"></i>
+          <span>Ateky <span class="accent">Internet</span></span>
+          <span class="brand-tag">Márcia Treinamentos</span>
+        </a>
+
+        <div class="topbar-actions">
+          <ul class="topbar-nav">
+            <li><a href="#dor">A Dor & Lucro</a></li>
+            <li><a href="#formula-cx">Fórmula CX</a></li>
+            <li><a href="#tbc">TBC</a></li>
+            <li><a href="#situacoes">Casos Reais</a></li>
+            <li><a href="#brand-lover">Brand Lover</a></li>
+            <li><a href="#checklist">Checklist</a></li>
+            <li><a href="#avaliacao">Avaliação</a></li>
+          </ul>
+
+          <button class="btn-action" onclick="window.print()">
+            <i data-lucide="printer" style="width: 15px; height: 15px;"></i>
+            Imprimir Guia
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="inicio">
+
+    <!-- HERO PRINCIPAL COM MÁRCIA À DIREITA -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-kicker">
+          <i data-lucide="award" style="width: 14px; height: 14px;"></i>
+          Centro de Soluções &bull; Treinamento Corporativo
+        </div>
+
+        <div class="punchline-badge">
+          &bull; Pare de Rasgar Dinheiro na Empresa &bull;
+        </div>
+
+        <h1>Programa de Atendimento<br>com Visão 360º</h1>
+
+        <p class="subtitle">
+          Aumentar a retenção em apenas <strong>5%</strong> pode elevar o lucro líquido da operação de <strong>25% a 95%</strong>. Cada cliente que cancela por experiência fraturada no suporte é investimento jogado fora. Este treinamento ensina como transformar o atendimento diário em retenção real, consistência e fidelização definitiva.
+        </p>
+
+        <div class="hero-meta-box">
+          <i data-lucide="user-check" style="color: var(--cyan); width: 18px; height: 18px;"></i>
+          <div>
+            Instrutora Oficial: <strong>Márcia Cardoso</strong> &bull; Técnica Especialista &amp; Trainee Suporte N1
+          </div>
+        </div>
+      </div>
+
+      <!-- FOTO DA MÁRCIA APONTANDO PARA A ESQUERDA -->
+      <div class="hero-avatar-side">
+        <div class="avatar-wrapper">
+          <img src="marcia.jpeg" alt="Márcia Cardoso - Instrutora Oficial Ateky">
+          <div class="avatar-badge-tag">
+            <i data-lucide="check-circle-2" style="width: 13px; height: 13px; display: inline-block; vertical-align: -2px; color: var(--cyan);"></i>
+            Instrutora Márcia Cardoso
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUMÁRIO EXECUTIVO (TOC) -->
+    <section class="toc-card">
+      <div class="toc-header">
+        <i data-lucide="compass" style="color: var(--navy); width: 22px; height: 22px;"></i>
+        <h2>Mapa de Aprendizado &bull; O que você vai dominar</h2>
+      </div>
+
+      <div class="toc-grid">
+        <a href="#dor" class="toc-item">
+          <div class="toc-num">01</div>
+          <div class="toc-title">Por que a Ateky está rasgando dinheiro</div>
+        </a>
+
+        <a href="#impacto" class="toc-item">
+          <div class="toc-num">02</div>
+          <div class="toc-title">O impacto real da retenção no lucro</div>
+        </a>
+
+        <a href="#formula-cx" class="toc-item">
+          <div class="toc-num">03</div>
+          <div class="toc-title">A Fórmula da Expectativa (Expectativa x Entrega)</div>
+        </a>
+
+        <a href="#tbc" class="toc-item">
+          <div class="toc-num">04</div>
+          <div class="toc-title">Metodologia TBC — Tira a Bunda da Cadeira</div>
+        </a>
+
+        <a href="#valor" class="toc-item">
+          <div class="toc-num">05</div>
+          <div class="toc-title">O que é valor real para o cliente de Internet</div>
+        </a>
+
+        <a href="#situacoes" class="toc-item">
+          <div class="toc-num">06</div>
+          <div class="toc-title">5 Situações Reais de Insatisfação no Suporte</div>
+        </a>
+
+        <a href="#brand-lover" class="toc-item">
+          <div class="toc-num">07</div>
+          <div class="toc-title">De Detrator a Brand Lover (Defensor da Marca)</div>
+        </a>
+
+        <a href="#caminho" class="toc-item">
+          <div class="toc-num">08</div>
+          <div class="toc-title">Experiência é um caminho sem volta (A 4ª Dimensão)</div>
+        </a>
+
+        <a href="#pilares" class="toc-item">
+          <div class="toc-num">09</div>
+          <div class="toc-title">Pilares Operacionais Ateky (FALE, Reincidência e Anamnese)</div>
+        </a>
+
+        <a href="#checklist" class="toc-item">
+          <div class="toc-num">10</div>
+          <div class="toc-title">Checklist de Excelência &bull; Atendimento 360º</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- MÓDULO 1: A DOR (POR QUE A EMPRESA RASGA DINHEIRO) -->
+    <section class="module-section" id="dor">
+      <div class="module-header">
+        <div class="module-badge">1</div>
+        <div class="module-titles">
+          <h2>Por que a Ateky está rasgando dinheiro</h2>
+          <p>Conquistar cliente novo custa caro. Perder quem já foi conquistado por falha de experiência no suporte é prejuízo direto.</p>
+        </div>
+      </div>
+
+      <div class="grid-cards">
+        <div class="big-stat-box">
+          <div class="big-number">5<span class="symbol">%</span></div>
+          <div class="big-stat-title">Aumento na Retenção</div>
+          <div class="big-stat-desc">É o suficiente para fazer o lucro operacional saltar entre <strong>25% e 95%</strong>.</div>
+        </div>
+
+        <div class="big-stat-box">
+          <div class="big-number">7<span class="symbol">x</span></div>
+          <div class="big-stat-title">Mais Caro Conquistar</div>
+          <div class="big-stat-desc">Trazer um cliente novo custa de 5 a 7 vezes mais caro do que fidelizar e cuidar de quem já confia na Ateky.</div>
+        </div>
+
+        <div class="big-stat-box">
+          <div class="big-number">&infin;</div>
+          <div class="big-stat-title">O Efeito Detrator</div>
+          <div class="big-stat-desc">O cliente que cancela insatisfeito propaga o descontentamento para familiares, vizinhos e redes sociais.</div>
+        </div>
+      </div>
+
+      <div class="highlight-box navy">
+        <h3>
+          <i data-lucide="alert-circle" style="color: #7dd3fc; width: 20px; height: 20px;"></i>
+          A Verdade Nua e Crua da Operação
+        </h3>
+        <p>
+          Quando a experiência no suporte é fraturada, o cliente se transforma em detrator. Quando o atendimento entrega apenas o protocolo burocrático, ele continua vulnerável a qualquer oferta da concorrência. Mas quando o atendimento resolve com agilidade, empatia e clareza, ele se torna um <strong>Brand Lover</strong> — um defensor leal da Ateky. A diferença entre rasgar receita e multiplicar lucro está na postura que a equipe assume em cada contato.
+        </p>
+      </div>
+    </section>
+
+    <!-- MÓDULO 2: O IMPACTO NO LUCRO -->
+    <section class="module-section" id="impacto">
+      <div class="module-header">
+        <div class="module-badge">2</div>
+        <div class="module-titles">
+          <h2>O impacto real da retenção no lucro</h2>
+          <p>Não se trata de retórica corporativa. É cálculo financeiro rigoroso.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box success">
+        <h3>
+          <i data-lucide="trending-up" style="color: #15803d; width: 20px; height: 20px;"></i>
+          Princípio Comprovado de Gestão
+        </h3>
+        <p>
+          Aumentar a taxa de retenção em apenas 5% faz o lucro aumentar de 25% a 95%. Isso ocorre porque o cliente que permanece na base continua gerando receita recorrente com custo operacional decrescente, já teve seu investimento de instalação amortizado e gera indicações orgânicas de alto valor para a Ateky.
+        </p>
+      </div>
+
+      <div class="grid-cards" style="margin-top: 20px;">
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="user-plus"></i>
+            01. O Cliente que Permanece
+          </div>
+          <div class="card-body">
+            <p>Gera receita mensal previsível, recomenda o provedor para o seu círculo de convivência e não consome novos custos de aquisição ou publicidade.</p>
+            <p>Cada mês a mais de permanência multiplica diretamente o valor de vida do cliente (LTV) dentro da Ateky.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="user-minus"></i>
+            02. O Cliente que Cancela (Churn)
+          </div>
+          <div class="card-body">
+            <p>Leva embora o custo investido na equipe comercial, taxa de instalação, suporte de campo e equipamentos de fibra que poderiam estar gerando resultado.</p>
+            <p>Além da perda de receita, o atrito não resolvido mancha a reputação regional da operadora.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="life-buoy"></i>
+            03. O Papel Estratégico do Suporte
+          </div>
+          <div class="card-body">
+            <p>O atendimento ao cliente e o suporte técnico são os principais pontos de contato durante toda a vida útil do contrato.</p>
+            <p>É nessa linha de frente que a lealdade é construída ou destruída. Todo chamado é uma oportunidade explícita de retenção ou perda de receita.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 3: A FÓRMULA DA EXPECTATIVA (PAULA PIMENTA CX) -->
+    <section class="module-section" id="formula-cx">
+      <div class="module-header">
+        <div class="module-badge">3</div>
+        <div class="module-titles">
+          <h2>A Fórmula da Expectativa &bull; Experiência do Cliente</h2>
+          <p>Entenda a regra fundamental que dita o sucesso ou o fracasso de qualquer relacionamento com o cliente.</p>
+        </div>
+      </div>
+
+      <div class="grid-cards">
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="scale"></i>
+            A Equação Central: Expectativa x Entrega
+          </div>
+          <div class="card-body">
+            <p>A experiência que o cliente percebe nunca é avaliada no vácuo; ela é sempre o resultado exato entre <strong>o que ele esperava receber</strong> versus <strong>o que a equipe efetivamente entregou</strong>.</p>
+            <p>Se a expectativa foi alta e a entrega foi confusa ou demorada, a nota será negativa — mesmo que o sinal técnico tenha sido restabelecido.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="git-merge"></i>
+            Alinhamento da Régua de Promessa
+          </div>
+          <div class="card-body">
+            <p>Vendas, marketing, suporte e atendimento de campo precisam falar o mesmo idioma e calibrar a mesma régua de compromisso.</p>
+            <p><strong>Regra de ouro:</strong> Nunca prometa prazos ou soluções que a operação interna não seja capaz de cumprir com consistência diária.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="sparkles"></i>
+            O Mito do "Efeito Uau" Desbalanceado
+          </div>
+          <div class="card-body">
+            <p>Superar expectativas de maneira isolada eleva a régua do cliente a patamares insustentáveis. O que surpreende hoje vira a obrigação mínima de amanhã.</p>
+            <p>A prioridade absoluta do atendimento Ateky deve ser a <strong>excelência consistente no básico</strong>: agilidade, empatia, escuta ativa e solução sem enrolação.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 4: METODOLOGIA TBC (TIRA A BUNDA DA CADEIRA) -->
+    <section class="module-section" id="tbc">
+      <div class="module-header">
+        <div class="module-badge">4</div>
+        <div class="module-titles">
+          <h2>Metodologia TBC &bull; Tira a Bunda da Cadeira</h2>
+          <p>O princípio mais importante para parar de desenhar a experiência de dentro para fora.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box warning">
+        <h3>
+          <i data-lucide="alert-triangle" style="color: var(--alerta-accent); width: 20px; height: 20px;"></i>
+          O Maior Erro no Atendimento ao Cliente
+        </h3>
+        <p>
+          Ficar fechado na sala com ar-condicionado, olhar apenas para os dados na tela do sistema e supor que sabe o que o cliente valoriza. Essa desconexão gera procedimentos engessados que não resolvem a dor real, aumentam o tempo de atendimento e provocam cancelamentos previsíveis.
+        </p>
+      </div>
+
+      <div class="grid-cards" style="margin-top: 20px;">
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="footprints"></i>
+            [T] Tira a Bunda da Cadeira
+          </div>
+          <div class="card-body">
+            <p>Vá vivenciar a jornada real de quem usa a internet da Ateky. Ouça gravações de chamados difíceis, converse com quem cancelou e entenda a aflição de quem depende do sinal para trabalhar em home office ou estudar.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="search"></i>
+            [B] Busque o Valor Real
+          </div>
+          <div class="card-body">
+            <p>O que é valor legítimo para quem contrata a Ateky? Velocidade no papel? Não: é estabilidade, rapidez na resposta, clareza quando ocorre uma oscilação e segurança de que não será desamparado.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="layers"></i>
+            [C] Construa a Partir Dele
+          </div>
+          <div class="card-body">
+            <p>Todo fluxo de triagem, toda mensagem de WhatsApp e toda postura ao telefone deve nascer da perspectiva do cliente — e não da conveniência administrativa da operação.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-label">
+          <i data-lucide="help-circle" style="width: 15px; height: 15px;"></i>
+          Pergunta de Ouro para Todo Atendente Antes de Iniciar o Chamado
+        </div>
+        &ldquo;Se eu estivesse no lugar dessa pessoa, sem conseguir trabalhar ou com a família inteira sem conexão, o que me faria sentir verdadeiramente acolhido, respeitado e seguro de que meu problema está sendo resolvido?&rdquo;
+      </div>
+    </section>
+
+    <!-- MÓDULO 5: O QUE É VALOR PARA O CLIENTE ATEKY -->
+    <section class="module-section" id="valor">
+      <div class="module-header">
+        <div class="module-badge">5</div>
+        <div class="module-titles">
+          <h2>O que é valor para o cliente da Ateky</h2>
+          <p>Se a equipe não souber exatamente o que o cliente valoriza, torna-se impossível retê-lo.</p>
+        </div>
+      </div>
+
+      <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 20px;">
+        O tempo é o recurso mais precioso das pessoas no mundo moderno. Empresas que economizam o tempo do cliente ganham lealdade imediata. No atendimento de telecomunicações, isso significa: <strong>diagnóstico rápido, linguagem acessível e resolução sem fazer o cliente repetir a mesma história</strong>.
+      </p>
+
+      <div class="grid-cards">
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="clock"></i>
+            Valor = Tempo Economizado
+          </div>
+          <div class="card-body">
+            <p>O cliente não entrou em contato para conversar; ele quer restabelecer a rotina dele. Cada minuto de espera sem retorno ou cada transferência entre atendentes é percebido como descaso.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="message-square"></i>
+            Valor = Clareza Sem Jargões
+          </div>
+          <div class="card-body">
+            <p>O cliente não precisa entender o que é PON, LOS, OLT ou atenuação óptica. Ele precisa de uma explicação humana, direta e compreensível sobre o que está acontecendo e em quanto tempo voltará.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="shield"></i>
+            Valor = Sensação de Segurança
+          </div>
+          <div class="card-body">
+            <p>Saber que o problema foi assumido por alguém competente que vai acompanhar o caso até o desfecho. A certeza de &ldquo;eu estou cuidando disso por você&rdquo; retém muito mais do que qualquer desconto temporário.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 6: 5 SITUAÇÕES REAIS DE INSATISFAÇÃO -->
+    <section class="module-section" id="situacoes">
+      <div class="module-header">
+        <div class="module-badge">6</div>
+        <div class="module-titles">
+          <h2>5 Situações reais de insatisfação no suporte</h2>
+          <p>Como a falha de experiência acontece na prática — e a postura recomendada para virar o jogo.</p>
+        </div>
+      </div>
+
+      <!-- Situação 1 -->
+      <div class="situation-pair">
+        <div class="situation-header">
+          <span>Situação 01 &bull; Reincidência de Contato</span>
+          <span style="font-size: 0.8rem; color: var(--text-soft);">Foco: Consulta Obrigatória de Histórico</span>
+        </div>
+        <div class="situation-content-grid">
+          <div class="problem-side">
+            <span class="side-badge">
+              <i data-lucide="x-circle" style="width: 12px; height: 12px;"></i>
+              A Falha Comum
+            </span>
+            <h4>&ldquo;Já liguei três vezes e ninguém resolve meu problema!&rdquo;</h4>
+            <p>O cliente retorna com a mesma falha após poucas horas ou dias. A equipe trata o contato como se fosse uma primeira ligação, fazendo as mesmas perguntas básicas. O cliente sente revolta e conclui que a empresa é desorganizada.</p>
+          </div>
+          <div class="solution-side">
+            <span class="side-badge">
+              <i data-lucide="check-circle" style="width: 12px; height: 12px;"></i>
+              A Postura Certa (Virada de Chave)
+            </span>
+            <h4>Reconhecimento Imediato do Histórico</h4>
+            <p>Antes de saudar o cliente, leia as últimas notas do sistema. Valide a frustração dele com firmeza e empatia.</p>
+            <div class="solution-script">
+              &ldquo;Olá, Sr(a). [Nome]. Já estou com o histórico aberto na minha tela e vi que você nos contatou ontem sobre essa mesma oscilação. Peço desculpas por isso. Vamos diagnosticar a causa raiz agora para solucionar de vez.&rdquo;
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Situação 2 -->
+      <div class="situation-pair">
+        <div class="situation-header">
+          <span>Situação 02 &bull; Script Cego</span>
+          <span style="font-size: 0.8rem; color: var(--text-soft);">Foco: Anamnese Investigativa</span>
+        </div>
+        <div class="situation-content-grid">
+          <div class="problem-side">
+            <span class="side-badge">
+              <i data-lucide="x-circle" style="width: 12px; height: 12px;"></i>
+              A Falha Comum
+            </span>
+            <h4>&ldquo;Toda vez que eu ligo, só sabem mandar eu desligar o roteador!&rdquo;</h4>
+            <p>O cliente já reiniciou o equipamento diversas vezes antes de chamar. A orientação mecânica e padronizada passa a impressão de que o atendente é um robô desinteressado.</p>
+          </div>
+          <div class="solution-side">
+            <span class="side-badge">
+              <i data-lucide="check-circle" style="width: 12px; height: 12px;"></i>
+              A Postura Certa (Virada de Chave)
+            </span>
+            <h4>Investigação Técnica Personalizada</h4>
+            <p>Pergunte antes de comandar. Demonstre interesse investigativo real sobre o comportamento da rede na casa do cliente.</p>
+            <div class="solution-script">
+              &ldquo;Entendido. Para não fazermos testes desnecessários: isso acontece em todos os aparelhos ou apenas em algum específico? As luzes do equipamento da fibra estão normais ou há alguma piscando em vermelho?&rdquo;
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Situação 3 -->
+      <div class="situation-pair">
+        <div class="situation-header">
+          <span>Situação 03 &bull; Vácuo no Chat</span>
+          <span style="font-size: 0.8rem; color: var(--text-soft);">Foco: Presença e Atualização Constante</span>
+        </div>
+        <div class="situation-content-grid">
+          <div class="problem-side">
+            <span class="side-badge">
+              <i data-lucide="x-circle" style="width: 12px; height: 12px;"></i>
+              A Falha Comum
+            </span>
+            <h4>&ldquo;Fiquei 20 minutos esperando no chat e ninguém me respondia.&rdquo;</h4>
+            <p>O atendente abre o sistema para testar parâmetros ou consultar a supervisão e esquece de avisar o cliente. O silêncio prolongado gera sensação imediata de abandono e descaso.</p>
+          </div>
+          <div class="solution-side">
+            <span class="side-badge">
+              <i data-lucide="check-circle" style="width: 12px; height: 12px;"></i>
+              A Postura Certa (Virada de Chave)
+            </span>
+            <h4>Comunicação Ativa de Status</h4>
+            <p>Mesmo que o teste leve tempo, dê sinal de vida a cada 90 a 120 segundos. Manter a presença desarma a ansiedade.</p>
+            <div class="solution-script">
+              &ldquo;Estou fazendo a leitura do sinal da sua fibra aqui na central, leva cerca de um minutinho. Continuo acompanhando com você aqui na linha.&rdquo;
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Situação 4 -->
+      <div class="situation-pair">
+        <div class="situation-header">
+          <span>Situação 04 &bull; Jogo de Empurra</span>
+          <span style="font-size: 0.8rem; color: var(--text-soft);">Foco: Passagem de Bastão com Contexto</span>
+        </div>
+        <div class="situation-content-grid">
+          <div class="problem-side">
+            <span class="side-badge">
+              <i data-lucide="x-circle" style="width: 12px; height: 12px;"></i>
+              A Falha Comum
+            </span>
+            <h4>&ldquo;Ficam me jogando de um setor para o outro e ninguém resolve.&rdquo;</h4>
+            <p>Transferir o atendimento sem registrar o que já foi apurado. O cliente cai em outro setor tendo que recomeçar toda a explicação do zero. É um dos maiores motivos de cancelamento com raiva.</p>
+          </div>
+          <div class="solution-side">
+            <span class="side-badge">
+              <i data-lucide="check-circle" style="width: 12px; height: 12px;"></i>
+              A Postura Certa (Virada de Chave)
+            </span>
+            <h4>Passagem de Bastão Completa</h4>
+            <p>Documente o diagnóstico. Se precisar transferir, transfira com contexto para que o próximo colega continue o caso de onde parou.</p>
+            <div class="solution-script">
+              &ldquo;Sr(a). [Nome], verifiquei que o caso requer suporte de nível técnico avançado. Já registrei tudo o que você me relatou e passei as informações para o especialista [Nome do colega], que já vai dar continuidade sem você precisar repetir nada.&rdquo;
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Situação 5 -->
+      <div class="situation-pair">
+        <div class="situation-header">
+          <span>Situação 05 &bull; Distanciamento &ldquo;Não é com a gente&rdquo;</span>
+          <span style="font-size: 0.8rem; color: var(--text-soft);">Foco: Postura Consultiva e Acolhedora</span>
+        </div>
+        <div class="situation-content-grid">
+          <div class="problem-side">
+            <span class="side-badge">
+              <i data-lucide="x-circle" style="width: 12px; height: 12px;"></i>
+              A Falha Comum
+            </span>
+            <h4>&ldquo;Disseram secamente que a fibra está boa e o problema é da minha TV.&rdquo;</h4>
+            <p>Frases que empurram o problema para longe do provedor geram sentimento de desamparo e incompetência técnica no cliente.</p>
+          </div>
+          <div class="solution-side">
+            <span class="side-badge">
+              <i data-lucide="check-circle" style="width: 12px; height: 12px;"></i>
+              A Postura Certa (Virada de Chave)
+            </span>
+            <h4>Acolhimento + Condução Amigável</h4>
+            <p>Mostre que a rede está íntegra, mas auxilie o cliente a entender como resolver o dispositivo dele de maneira parceira.</p>
+            <div class="solution-script">
+              &ldquo;Excelente notícia: os testes mostram que a fibra da Ateky está chegando com 100% da velocidade na sua porta. Vamos dar uma olhada juntos na configuração de Wi-Fi da sua TV para deixá-la funcionando perfeitamente.&rdquo;
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 7: DE DETRATOR A BRAND LOVER -->
+    <section class="module-section" id="brand-lover">
+      <div class="module-header">
+        <div class="module-badge">7</div>
+        <div class="module-titles">
+          <h2>De detrator a Brand Lover</h2>
+          <p>A experiência que você entrega decide de qual lado o cliente vai jogar.</p>
+        </div>
+      </div>
+
+      <div class="grid-cards">
+        <div class="card" style="border-top: 4px solid var(--critico-border);">
+          <div class="card-header" style="background: #991b1b;">
+            <i data-lucide="thumbs-down"></i>
+            O Cliente Detrator
+          </div>
+          <div class="card-body">
+            <p><strong>Experiência fraturada:</strong> sentiu descaso, falta de resposta ou foi tratado com frieza.</p>
+            <p>Cancela na primeira oportunidade, cobra rescisão, deixa reclamações e atua ativamente para impedir que outros contratem a Ateky.</p>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 4px solid #facc15;">
+          <div class="card-header" style="background: #854d0e;">
+            <i data-lucide="meh"></i>
+            O Cliente Apenas Satisfeito
+          </div>
+          <div class="card-body">
+            <p><strong>Experiência morna:</strong> o problema foi resolvido, mas o atendimento foi burocrático e sem conexão humana.</p>
+            <p>Não reclama abertamente, mas não defende a marca e migra facilmente caso o concorrente ofereça 10 reais de desconto.</p>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sucesso-border);">
+          <div class="card-header" style="background: #166534;">
+            <i data-lucide="heart"></i>
+            O Brand Lover (Defensor)
+          </div>
+          <div class="card-body">
+            <p><strong>Experiência memorável:</strong> sentiu que o atendente se importou genuinamente com o problema dele e resolveu com agilidade.</p>
+            <p>Defende a Ateky para vizinhos, perdoa eventuais manutenções preventivas e permanece como assinante leal por longos anos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box navy" style="margin-top: 24px;">
+        <h3>
+          <i data-lucide="target" style="color: #7dd3fc; width: 20px; height: 20px;"></i>
+          O Propósito Central do Suporte Ateky
+        </h3>
+        <p>
+          Nosso trabalho diário não é apenas &ldquo;encerrar chamados no sistema&rdquo;. É garantir que, ao desligar o telefone ou fechar o chat, o cliente pense com convicção: <em>&ldquo;Fui ouvido, fui respeitado e a equipe da Ateky fez de tudo para me ajudar&rdquo;</em>. Essa é a postura que estanca o cancelamento e sustenta o crescimento da empresa.
+        </p>
+      </div>
+    </section>
+
+    <!-- MÓDULO 8: A 4ª DIMENSÃO DO NEGÓCIO -->
+    <section class="module-section" id="caminho">
+      <div class="module-header">
+        <div class="module-badge">8</div>
+        <div class="module-titles">
+          <h2>Experiência é um caminho sem volta</h2>
+          <p>A régua de exigência do consumidor nunca recua.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box warning">
+        <h3>
+          <i data-lucide="clock-4" style="color: var(--alerta-accent); width: 20px; height: 20px;"></i>
+          A 4ª Dimensão Empresarial
+        </h3>
+        <p>
+          No passado, as empresas competiam prioritariamente em duas dimensões: <strong>Financeiro e Tempo</strong>. Com a revolução digital, surgiu a terceira dimensão: a <strong>Tecnologia</strong>. Hoje, no entanto, todas as empresas têm acesso a tecnologia e equipamentos similares. A verdadeira vantagem competitiva está na quarta dimensão: <strong>A Experiência do Cliente (CX)</strong>. Quem ignora a experiência é deixado para trás.
+        </p>
+      </div>
+
+      <div class="grid-cards" style="margin-top: 20px;">
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="bar-chart-2"></i>
+            A Régua Só Sobe
+          </div>
+          <div class="card-body">
+            <p>Há dez anos, esperar dias por uma visita técnica era tolerado. Hoje, o cliente espera diagnóstico em minutos e agendamento preciso. A tolerância para falhas diminui a cada ano.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="network"></i>
+            Quebra de Silos Operacionais
+          </div>
+          <div class="card-body">
+            <p>A retenção não é &ldquo;problema de um setor isolado&rdquo;. Cada colaborador da Ateky — da recepção ao suporte, do técnico de campo ao faturamento — constrói a percepção da marca.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="check-check"></i>
+            Excelência na Execução
+          </div>
+          <div class="card-body">
+            <p>O mercado está repleto de discursos bonitos sobre qualidade. O que realmente define os líderes é a disciplina diária de execução com padrão e atenção aos mínimos detalhes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-label">
+          <i data-lucide="quote" style="width: 15px; height: 15px;"></i>
+          Frase para Gravar no Dia a Dia
+        </div>
+        &ldquo;Suas ações falam tão alto que eu não consigo ouvir o que você diz.&rdquo;<br>
+        O que nós fazemos em cada chamada e em cada mensagem no chat fala infinitamente mais alto do que qualquer slogan de qualidade.
+      </div>
+    </section>
+
+    <!-- MÓDULO 9: PILARES OPERACIONAIS ATEKY -->
+    <section class="module-section" id="pilares">
+      <div class="module-header">
+        <div class="module-badge">9</div>
+        <div class="module-titles">
+          <h2>Pilares Operacionais da Operação Ateky</h2>
+          <p>Ferramentas práticas para a equipe de atendimento colocar a Visão 360º em ação imediata.</p>
+        </div>
+      </div>
+
+      <div class="grid-cards">
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="check-circle-2"></i>
+            Método FALE + Visão 360º
+          </div>
+          <div class="card-body">
+            <p><strong>[F] Falar com empatia:</strong> Chamar o cliente pelo nome próprio no primeiro segundo.</p>
+            <p><strong>[A] Acolher a dor:</strong> Validar o incômodo sem contestar ou desqualificar a queixa.</p>
+            <p><strong>[L] Limpar dúvidas:</strong> Traduzir a situação técnica em linguagem simples e transparente.</p>
+            <p><strong>[E] Encantar &amp; Encaminhar:</strong> Garantir que o chamado tenha um dono responsável até o desfecho.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="calendar"></i>
+            Regra da Reincidência (Janela de 60 Dias)
+          </div>
+          <div class="card-body">
+            <p>Todo cliente que aciona o suporte pela 2ª vez dentro de uma janela de 60 dias entra em <strong>Alerta Vermelho de Retenção</strong>.</p>
+            <p>O atendimento não pode ser genérico. O caso deve ser tratado como prioridade máxima para erradicar a instabilidade física ou de configuração de forma permanente.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i data-lucide="stethoscope"></i>
+            Anamnese Assertiva Sem Conexão
+          </div>
+          <div class="card-body">
+            <p>Antes de sugerir qualquer intervenção física no roteador, execute o roteiro de 4 perguntas cirúrgicas:</p>
+            <ul style="padding-left: 18px; margin-top: 6px;">
+              <li>1. A falha ocorre em todos os aparelhos ou em um só?</li>
+              <li>2. As luzes PON/LOS no equipamento estão piscando em vermelho?</li>
+              <li>3. O problema é constante ou acontece em horários específicos?</li>
+              <li>4. Houve queda de energia ou alteração de cabos recente?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 10: CHECKLIST INTERATIVO DE EXCELÊNCIA -->
+    <section class="module-section" id="checklist">
+      <div class="module-header">
+        <div class="module-badge">10</div>
+        <div class="module-titles">
+          <h2>Checklist de Excelência &bull; Atendimento 360º</h2>
+          <p>Marque os critérios a cada atendimento para auditar sua própria conformidade operacional.</p>
+        </div>
+      </div>
+
+      <div class="checklist-container">
+        <div class="checklist-header">
+          <div class="checklist-title">
+            <h3>Auditoria Rápida de Atendimento</h3>
+            <p>Cada item marcado representa uma barreira a mais contra o cancelamento do cliente.</p>
+          </div>
+
+          <div class="progress-wrapper">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="checklistProgress"></div>
+            </div>
+            <div class="progress-text" id="progressText">0 de 7 itens cumpridos (0%)</div>
+          </div>
+        </div>
+
+        <div class="checklist-items">
+          <label class="check-item" onclick="updateChecklist(this)">
+            <input type="checkbox">
+            <span class="check-label">1. Consultei o histórico do cliente antes de iniciar o atendimento para identificar reincidências.</span>
+          </label>
+
+          <label class="check-item" onclick="updateChecklist(this)">
+            <input type="checkbox">
+            <span class="check-label">2. Chamei o cliente pelo nome com tom acolhedor e mostrei empatia pela situação relatada.</span>
+          </label>
+
+          <label class="check-item" onclick="updateChecklist(this)">
+            <input type="checkbox">
+            <span class="check-label">3. Conduzi a anamnese assertiva (perguntas investigativas) antes de propor qualquer reinicialização.</span>
+          </label>
+
+          <label class="check-item" onclick="updateChecklist(this)">
+            <input type="checkbox">
+            <span class="check-label">4. Expliquei a situação em português claro, eliminando jargões técnicos incompreensíveis.</span>
+          </label>
+
+          <label class="check-item" onclick="updateChecklist(this)">
+            <input type="checkbox">
+            <span class="check-label">5. Mantive presença constante (sinal de vida a cada 90-120 segundos caso estivesse em testes).</span>
+          </label>
+
+          <label class="check-item" onclick="updateChecklist(this)">
+            <input type="checkbox">
+            <span class="check-label">6. Confirmei pessoalmente com o cliente se a internet foi restabelecida e se restou qualquer dúvida.</span>
+          </label>
+
+          <label class="check-item" onclick="updateChecklist(this)">
+            <input type="checkbox">
+            <span class="check-label">7. Registrei o chamado com riqueza de detalhes técnicos para respaldar qualquer atendimento futuro.</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 11: MENSAGEM DA INSTRUTORA & AVALIAÇÃO COM QR CODE -->
+    <section class="module-section" id="avaliacao">
+      <div class="trainer-card">
+        <div class="trainer-info">
+          <span class="brand-tag" style="background: rgba(10, 30, 63, 0.08); color: var(--navy); border-color: var(--border);">Mensagem da Instrutora</span>
+          <h3>Márcia Cardoso</h3>
+          <span class="trainer-role">Técnica Especialista &bull; Trainee Suporte N1 &bull; Instrutora Oficial Ateky</span>
+
+          <p class="trainer-text">
+            &ldquo;Obrigada pelo seu comprometimento ao participar deste treinamento do Programa de Atendimento com Visão 360º. Cada vez que você escolhe ouvir de verdade, investigar com carinho e resolver com precisão, é a reputação e a saúde da Ateky que você está fortalecendo.&rdquo;
+          </p>
+
+          <div class="trainer-highlight">
+            <i data-lucide="check" style="width: 16px; height: 16px; display: inline-block; vertical-align: -2px; color: var(--sucesso-accent);"></i>
+            Sua dedicação diária é a maior força da nossa empresa. Agora peço que avalie com sinceridade este conteúdo no QR Code abaixo!
+          </div>
+        </div>
+
+        <div class="trainer-photo-wrap">
+          <img src="marcia.jpeg" alt="Márcia Cardoso - Instrutora Ateky">
+        </div>
+      </div>
+
+      <!-- CAIXA DE AVALIAÇÃO COM O QR CODE OFICIAL -->
+      <div class="eval-box">
+        <div class="hero-kicker" style="background: rgba(255, 255, 255, 0.15); margin-bottom: 12px;">
+          <i data-lucide="star" style="width: 14px; height: 14px;"></i>
+          Sua Opinião Faz a Diferença
+        </div>
+
+        <h3>Avalie Este Treinamento</h3>
+        <p>
+          Sua avaliação sincera é a nossa bússola para continuar aprimorando os programas de capacitação e a rotina do Centro de Soluções Ateky.
+        </p>
+
+        <div class="qr-frame">
+          <img src="qrcode.jpeg" alt="QR Code Oficial de Avaliação do Treinamento">
+        </div>
+
+        <div class="eval-instruction">
+          <i data-lucide="camera" style="width: 16px; height: 16px;"></i>
+          Aponte a câmera do seu celular para o QR Code acima para avaliar
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ OFICIAL -->
+  <footer class="page-footer">
+    <div class="container">
+      <p class="main-copy">
+        &copy; 2026 Márcia Treinamentos &times; Ateky Internet &bull; Centro de Soluções &amp; Qualidade
+      </p>
+      <p class="sub-copy">
+        Pare de Rasgar Dinheiro na Empresa &bull; Programa de Atendimento com Visão 360º &bull; Elaborado por Márcia Cardoso
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Inicializar ícones do Lucide
+    lucide.createIcons();
+
+    // Script do Checklist Interativo
+    function updateChecklist(itemElement) {
+      const checkbox = itemElement.querySelector('input[type="checkbox"]');
+      if (checkbox.checked) {
+        itemElement.classList.add('checked');
+      } else {
+        itemElement.classList.remove('checked');
+      }
+
+      const allCheckboxes = document.querySelectorAll('.checklist-items input[type="checkbox"]');
+      const total = allCheckboxes.length;
+      let checkedCount = 0;
+
+      allCheckboxes.forEach(cb => {
+        if (cb.checked) checkedCount++;
+      });
+
+      const percentage = Math.round((checkedCount / total) * 100);
+      const progressBar = document.getElementById('checklistProgress');
+      const progressText = document.getElementById('progressText');
+
+      progressBar.style.width = percentage + '%';
+      progressText.textContent = `${checkedCount} de ${total} itens cumpridos (${percentage}%)`;
+
+      if (percentage === 100) {
+        progressText.innerHTML = `<strong>100% Concluído! &bull; Padrão Márcia de Excelência Alcançado!</strong>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
