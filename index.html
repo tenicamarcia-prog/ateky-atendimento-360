@@ -896,8 +896,8 @@
       padding: 36px 40px;
       box-shadow: var(--shadow);
       display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 36px;
+      grid-template-columns: 170px 1fr 170px;
+      gap: 26px;
       align-items: center;
       margin-bottom: 32px;
     }
@@ -2521,10 +2521,16 @@
     <!-- MÓDULO 11: MENSAGEM DA INSTRUTORA & AVALIAÇÃO COM QR CODE -->
     <section class="module-section" id="avaliacao">
       <div class="trainer-card">
+        <!-- Avatar Alexandre no Lado Esquerdo -->
+        <div class="trainer-photo-wrap alexandre-side" style="width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--white); outline: 2px solid #ea580c; box-shadow: 0 10px 25px rgba(234, 88, 12, 0.25); overflow: hidden; margin: 0 auto; flex-shrink: 0;">
+          <img src="alexandre.jpg" alt="Alexandre da Silveira - Trainee Suporte Ateky" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;">
+        </div>
+
+        <!-- Texto Central -->
         <div class="trainer-info">
-          <span class="brand-tag" style="background: rgba(10, 30, 63, 0.08); color: var(--navy); border-color: var(--border);">Mensagem da Instrutora</span>
-          <h3>Márcia Cardoso</h3>
-          <span class="trainer-role">Técnica Especialista &bull; Trainee Suporte N1 &bull; Instrutora Oficial Ateky</span>
+          <span class="brand-tag" style="background: rgba(10, 30, 63, 0.08); color: var(--navy); border-color: var(--border);">Mensagem dos Instrutores</span>
+          <h3>Márcia Cardoso &amp; Alexandre da Silveira</h3>
+          <span class="trainer-role">Trainees Especialistas &bull; Suporte N1, N2 &amp; N3 &bull; Instrutores Oficiais Ateky</span>
 
           <p class="trainer-text">
             &ldquo;Obrigada pelo seu comprometimento ao participar deste treinamento do Programa de Atendimento com Visão 360º. Cada vez que você escolhe ouvir de verdade, investigar com carinho e resolver com precisão, é a reputação e a saúde da Ateky que você está fortalecendo.&rdquo;
@@ -2532,12 +2538,13 @@
 
           <div class="trainer-highlight">
             <i data-lucide="check" style="width: 16px; height: 16px; display: inline-block; vertical-align: -2px; color: var(--sucesso-accent);"></i>
-            Sua dedicação diária é a maior força da nossa empresa. Agora peço que avalie com sinceridade este conteúdo no QR Code abaixo!
+            Sua dedicação diária é a maior força da nossa empresa. Agora pedimos que avalie com sinceridade este conteúdo no QR Code abaixo!
           </div>
         </div>
 
-        <div class="trainer-photo-wrap">
-          <img src="marcia.jpeg" alt="Márcia Cardoso - Instrutora Ateky">
+        <!-- Avatar Márcia no Lado Direito -->
+        <div class="trainer-photo-wrap marcia-side" style="width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--white); outline: 2px solid var(--cyan); box-shadow: 0 10px 25px rgba(2, 132, 199, 0.25); overflow: hidden; margin: 0 auto; flex-shrink: 0;">
+          <img src="marcia.jpeg" alt="Márcia Cardoso - Instrutora Ateky" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;">
         </div>
       </div>
 
