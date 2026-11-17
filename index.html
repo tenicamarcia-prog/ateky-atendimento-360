@@ -1193,8 +1193,16 @@
     .trainee-hero-header {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
       margin-bottom: 16px;
+    }
+
+    .trainee-info-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
     }
 
     .trainee-avatar-wrapper {
@@ -1627,15 +1635,15 @@
           <div class="trainee-hero-card marcia" onclick="switchPage('parte1', true)">
             <div>
               <div class="trainee-hero-header">
-                <div class="trainee-avatar-wrapper">
-                  <img src="marcia.jpeg" alt="Márcia Cardoso" class="trainee-avatar-img">
-                </div>
                 <div class="trainee-info-box">
                   <h3>Márcia Cardoso</h3>
                   <span class="trainee-badge t1">
                     <i data-lucide="award" style="width: 11px; height: 11px;"></i>
                     Trainee N1 &bull; Instrutora
                   </span>
+                </div>
+                <div class="trainee-avatar-wrapper">
+                  <img src="marcia.jpeg" alt="Márcia Cardoso" class="trainee-avatar-img">
                 </div>
               </div>
 
@@ -1661,15 +1669,15 @@
           <div class="trainee-hero-card alexandre" onclick="switchPage('parte2', true)">
             <div>
               <div class="trainee-hero-header">
-                <div class="trainee-avatar-wrapper">
-                  <img src="alexandre.jpg" alt="Alexandre da Silveira" class="trainee-avatar-img">
-                </div>
                 <div class="trainee-info-box">
                   <h3>Alexandre da Silveira</h3>
                   <span class="trainee-badge t2">
                     <i data-lucide="shield" style="width: 11px; height: 11px;"></i>
                     Trainee Suporte N2 &amp; N3
                   </span>
+                </div>
+                <div class="trainee-avatar-wrapper">
+                  <img src="alexandre.jpg" alt="Alexandre da Silveira" class="trainee-avatar-img">
                 </div>
               </div>
 
@@ -1700,21 +1708,8 @@
          ============================================================== -->
     <div id="page-parte1" class="page-tab-content active">
       
-      <!-- Banner de Abertura da Parte 1 com Foto da Márcia à Esquerda -->
+      <!-- Banner de Abertura da Parte 1 com Foto da Márcia -->
       <div class="page-hero-banner parte1-banner">
-        <div class="page-presenter-card marcia">
-          <div class="trainee-avatar-wrapper">
-            <img src="marcia.jpeg" alt="Márcia Cardoso" class="trainee-avatar-img">
-          </div>
-          <div class="trainee-info-box">
-            <h3>Márcia Cardoso</h3>
-            <span class="trainee-badge t1">
-              <i data-lucide="award" style="width: 11px; height: 11px;"></i>
-              Trainee N1 &bull; Instrutora
-            </span>
-          </div>
-        </div>
-
         <div class="page-hero-text">
           <span class="banner-badge">
             <i data-lucide="layers" style="width: 14px; height: 14px;"></i>
@@ -1724,6 +1719,19 @@
           <p class="lead">
             Por que cada cancelamento custa caro para a Ateky, como elevar o lucro mantendo a base e o segredo de calibrar a expectativa do cliente desde a contratação.
           </p>
+        </div>
+
+        <div class="page-presenter-card marcia">
+          <div class="trainee-info-box">
+            <h3>Márcia Cardoso</h3>
+            <span class="trainee-badge t1">
+              <i data-lucide="award" style="width: 11px; height: 11px;"></i>
+              Trainee N1 &bull; Instrutora
+            </span>
+          </div>
+          <div class="trainee-avatar-wrapper">
+            <img src="marcia.jpeg" alt="Márcia Cardoso" class="trainee-avatar-img">
+          </div>
         </div>
       </div>
 
@@ -2027,21 +2035,8 @@
          ============================================================== -->
     <div id="page-parte2" class="page-tab-content">
       
-      <!-- Banner de Abertura da Parte 2 com Foto do Alexandre à Esquerda -->
+      <!-- Banner de Abertura da Parte 2 com Foto do Alexandre -->
       <div class="page-hero-banner parte2-banner">
-        <div class="page-presenter-card alexandre">
-          <div class="trainee-avatar-wrapper">
-            <img src="alexandre.jpg" alt="Alexandre da Silveira" class="trainee-avatar-img">
-          </div>
-          <div class="trainee-info-box">
-            <h3>Alexandre da Silveira</h3>
-            <span class="trainee-badge t2">
-              <i data-lucide="shield" style="width: 11px; height: 11px;"></i>
-              Trainee Suporte N2 &amp; N3
-            </span>
-          </div>
-        </div>
-
         <div class="page-hero-text">
           <span class="banner-badge" style="background: rgba(234, 88, 12, 0.25); border-color: rgba(253, 186, 116, 0.45); color: #fed7aa;">
             <i data-lucide="headphones" style="width: 14px; height: 14px;"></i>
@@ -2051,6 +2046,19 @@
           <p class="lead">
             Scripts prontos para as 5 maiores reclamações do suporte, a virada de chave para criar Brand Lovers e os pilares operacionais Ateky (FALE, Regra dos 60 dias e Anamnese).
           </p>
+        </div>
+
+        <div class="page-presenter-card alexandre">
+          <div class="trainee-info-box">
+            <h3>Alexandre da Silveira</h3>
+            <span class="trainee-badge t2">
+              <i data-lucide="shield" style="width: 11px; height: 11px;"></i>
+              Trainee Suporte N2 &amp; N3
+            </span>
+          </div>
+          <div class="trainee-avatar-wrapper">
+            <img src="alexandre.jpg" alt="Alexandre da Silveira" class="trainee-avatar-img">
+          </div>
         </div>
       </div>
 
