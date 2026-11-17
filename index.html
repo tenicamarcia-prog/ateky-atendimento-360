@@ -1196,9 +1196,17 @@
     .trainee-hero-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 16px;
       margin-bottom: 16px;
+    }
+
+    .trainee-hero-card.marcia .trainee-hero-header {
+      justify-content: space-between;
+    }
+
+    .trainee-hero-card.alexandre .trainee-hero-header {
+      justify-content: flex-start;
+      gap: 16px;
     }
 
     .trainee-info-box {
@@ -1672,15 +1680,15 @@
           <div class="trainee-hero-card alexandre" onclick="switchPage('parte2', true)">
             <div>
               <div class="trainee-hero-header">
+                <div class="trainee-avatar-wrapper">
+                  <img src="alexandre.jpg" alt="Alexandre da Silveira" class="trainee-avatar-img">
+                </div>
                 <div class="trainee-info-box">
                   <h3>Alexandre da Silveira</h3>
                   <span class="trainee-badge t2">
                     <i data-lucide="shield" style="width: 11px; height: 11px;"></i>
                     Trainee Suporte N2 &amp; N3
                   </span>
-                </div>
-                <div class="trainee-avatar-wrapper">
-                  <img src="alexandre.jpg" alt="Alexandre da Silveira" class="trainee-avatar-img">
                 </div>
               </div>
 
@@ -2052,15 +2060,15 @@
         </div>
 
         <div class="page-presenter-card alexandre">
+          <div class="trainee-avatar-wrapper">
+            <img src="alexandre.jpg" alt="Alexandre da Silveira" class="trainee-avatar-img">
+          </div>
           <div class="trainee-info-box">
             <h3>Alexandre da Silveira</h3>
             <span class="trainee-badge t2">
               <i data-lucide="shield" style="width: 11px; height: 11px;"></i>
               Trainee Suporte N2 &amp; N3
             </span>
-          </div>
-          <div class="trainee-avatar-wrapper">
-            <img src="alexandre.jpg" alt="Alexandre da Silveira" class="trainee-avatar-img">
           </div>
         </div>
       </div>
