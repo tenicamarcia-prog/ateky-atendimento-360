@@ -896,7 +896,7 @@
       padding: 36px 40px;
       box-shadow: var(--shadow);
       display: grid;
-      grid-template-columns: 1fr 240px;
+      grid-template-columns: 240px 1fr;
       gap: 36px;
       align-items: center;
       margin-bottom: 32px;
@@ -1397,47 +1397,25 @@
 
     .page-presenter-card {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.3);
+      gap: 16px;
+      background: rgba(0, 0, 0, 0.32);
       border: 1.5px solid rgba(255, 255, 255, 0.18);
-      border-radius: 18px;
-      padding: 16px 20px;
-      min-width: 190px;
-      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 16px 22px;
+      backdrop-filter: blur(12px);
       flex-shrink: 0;
+      transition: all 0.2s ease;
     }
 
-    .banner-avatar-wrap {
-      width: 78px;
-      height: 78px;
-      margin-bottom: 10px;
-      position: relative;
+    .page-presenter-card.marcia .trainee-avatar-img {
+      border-color: #38bdf8;
+      box-shadow: 0 0 22px rgba(56, 189, 248, 0.6);
     }
 
-    .banner-avatar-wrap img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      border: 3px solid #ffffff;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-    }
-
-    .banner-avatar-name {
-      font-size: 0.98rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 2px;
-    }
-
-    .banner-avatar-role {
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #cbd5e1;
+    .page-presenter-card.alexandre .trainee-avatar-img {
+      border-color: #fb923c;
+      box-shadow: 0 0 22px rgba(251, 146, 60, 0.6);
     }
 
     /* TRANSITION BANNER AT END OF TABS */
@@ -1722,8 +1700,21 @@
          ============================================================== -->
     <div id="page-parte1" class="page-tab-content active">
       
-      <!-- Banner de Abertura da Parte 1 com Foto da Márcia -->
+      <!-- Banner de Abertura da Parte 1 com Foto da Márcia à Esquerda -->
       <div class="page-hero-banner parte1-banner">
+        <div class="page-presenter-card marcia">
+          <div class="trainee-avatar-wrapper">
+            <img src="marcia.jpeg" alt="Márcia Cardoso" class="trainee-avatar-img">
+          </div>
+          <div class="trainee-info-box">
+            <h3>Márcia Cardoso</h3>
+            <span class="trainee-badge t1">
+              <i data-lucide="award" style="width: 11px; height: 11px;"></i>
+              Trainee N1 &bull; Instrutora
+            </span>
+          </div>
+        </div>
+
         <div class="page-hero-text">
           <span class="banner-badge">
             <i data-lucide="layers" style="width: 14px; height: 14px;"></i>
@@ -1733,18 +1724,6 @@
           <p class="lead">
             Por que cada cancelamento custa caro para a Ateky, como elevar o lucro mantendo a base e o segredo de calibrar a expectativa do cliente desde a contratação.
           </p>
-          <div class="page-presenter-pill" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.25); padding: 5px 14px; border-radius: 99px; font-size: 0.85rem;">
-            <i data-lucide="mic" style="width: 14px; height: 14px; color: #38bdf8;"></i>
-            <span>Condução: <strong>Márcia Cardoso</strong> &bull; Trainee Suporte N1 &amp; Instrutora</span>
-          </div>
-        </div>
-
-        <div class="page-presenter-card">
-          <div class="banner-avatar-wrap">
-            <img src="marcia.jpeg" alt="Márcia Cardoso">
-          </div>
-          <div class="banner-avatar-name">Márcia Cardoso</div>
-          <div class="banner-avatar-role">Trainee Suporte N1</div>
         </div>
       </div>
 
@@ -2048,8 +2027,21 @@
          ============================================================== -->
     <div id="page-parte2" class="page-tab-content">
       
-      <!-- Banner de Abertura da Parte 2 com Foto do Alexandre -->
+      <!-- Banner de Abertura da Parte 2 com Foto do Alexandre à Esquerda -->
       <div class="page-hero-banner parte2-banner">
+        <div class="page-presenter-card alexandre">
+          <div class="trainee-avatar-wrapper">
+            <img src="alexandre.jpg" alt="Alexandre da Silveira" class="trainee-avatar-img">
+          </div>
+          <div class="trainee-info-box">
+            <h3>Alexandre da Silveira</h3>
+            <span class="trainee-badge t2">
+              <i data-lucide="shield" style="width: 11px; height: 11px;"></i>
+              Trainee Suporte N2 &amp; N3
+            </span>
+          </div>
+        </div>
+
         <div class="page-hero-text">
           <span class="banner-badge" style="background: rgba(234, 88, 12, 0.25); border-color: rgba(253, 186, 116, 0.45); color: #fed7aa;">
             <i data-lucide="headphones" style="width: 14px; height: 14px;"></i>
@@ -2059,18 +2051,6 @@
           <p class="lead">
             Scripts prontos para as 5 maiores reclamações do suporte, a virada de chave para criar Brand Lovers e os pilares operacionais Ateky (FALE, Regra dos 60 dias e Anamnese).
           </p>
-          <div class="page-presenter-pill" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.25); padding: 5px 14px; border-radius: 99px; font-size: 0.85rem;">
-            <i data-lucide="mic" style="width: 14px; height: 14px; color: #fb923c;"></i>
-            <span>Condução: <strong>Alexandre da Silveira</strong> &bull; Trainee Suporte N2 &amp; N3</span>
-          </div>
-        </div>
-
-        <div class="page-presenter-card">
-          <div class="banner-avatar-wrap">
-            <img src="alexandre.jpg" alt="Alexandre da Silveira">
-          </div>
-          <div class="banner-avatar-name">Alexandre da Silveira</div>
-          <div class="banner-avatar-role">Trainee N2 &amp; N3</div>
         </div>
       </div>
 
@@ -2522,6 +2502,10 @@
     <!-- MÓDULO 11: MENSAGEM DA INSTRUTORA & AVALIAÇÃO COM QR CODE -->
     <section class="module-section" id="avaliacao">
       <div class="trainer-card">
+        <div class="trainer-photo-wrap">
+          <img src="marcia.jpeg" alt="Márcia Cardoso - Instrutora Ateky">
+        </div>
+
         <div class="trainer-info">
           <span class="brand-tag" style="background: rgba(10, 30, 63, 0.08); color: var(--navy); border-color: var(--border);">Mensagem da Instrutora</span>
           <h3>Márcia Cardoso</h3>
@@ -2535,10 +2519,6 @@
             <i data-lucide="check" style="width: 16px; height: 16px; display: inline-block; vertical-align: -2px; color: var(--sucesso-accent);"></i>
             Sua dedicação diária é a maior força da nossa empresa. Agora peço que avalie com sinceridade este conteúdo no QR Code abaixo!
           </div>
-        </div>
-
-        <div class="trainer-photo-wrap">
-          <img src="marcia.jpeg" alt="Márcia Cardoso - Instrutora Ateky">
         </div>
       </div>
 
